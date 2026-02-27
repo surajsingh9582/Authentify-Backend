@@ -23,7 +23,7 @@ import java.util.List;
 public class JwtFilterRequest extends OncePerRequestFilter {
     public final AppUserDetailsService detailsService;
     public final JwtUtil jwtUtil;
-    private static final List<String> PUBLIC_URLS=List.of("/login","/register","/send-reset-otp","reset-password","/logout");
+    private static final List<String> PUBLIC_URLS=List.of("/login","/register","/send-reset-otp","/reset-password","/logout");
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         String path=request.getServletPath();

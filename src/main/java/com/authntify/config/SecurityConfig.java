@@ -35,8 +35,9 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.cors(Customizer.withDefaults())
                 .csrf(AbstractHttpConfigurer::disable)
+                .headers(headers -> headers.frameOptions().disable())
                 .authorizeHttpRequests(auth->auth
-                        .requestMatchers("/login","/register","/send-reset-otp","/reset-password","/logout").permitAll()
+                        .requestMatchers("/login","/register","/send-reset-otp","/reset-password","/logout","/h2-console/**").permitAll()
                         .anyRequest().authenticated())
                 .sessionManagement(session->session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .logout(AbstractHttpConfigurer::disable)

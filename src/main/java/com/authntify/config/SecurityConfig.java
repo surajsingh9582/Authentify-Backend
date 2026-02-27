@@ -37,7 +37,7 @@ public class SecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable)
                 .headers(headers -> headers.frameOptions().disable())
                 .authorizeHttpRequests(auth->auth
-                        .requestMatchers("/login","/register","/send-reset-otp","/reset-password","/logout","/h2-console/**").permitAll()
+                        .requestMatchers("/api/v1.0/login","/api/v1.0/register","/api/v1.0/send-reset-otp","/api/v1.0/reset-password","/api/v1.0/logout","/h2-console/**").permitAll()
                         .anyRequest().authenticated())
                 .sessionManagement(session->session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .logout(AbstractHttpConfigurer::disable)
